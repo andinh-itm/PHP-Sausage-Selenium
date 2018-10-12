@@ -27,13 +27,13 @@ class MyAwesomeTestCase extends Sauce\Sausage\WebDriverTestCase
     }
     public function testSubmitComments()
     {
-        $comment = "This is a very insightful comment.";
-        $this->byId('comments')->value($comment);
-        $this->byId('submit')->submit();
+        $comment = "Hello";
+        $this->byId('edit-search-keys')->value($comment);
+        $this->byId('edit-submit')->submit();
         $driver = $this;
         $comment_test = function() use ($comment, $driver) {
-            $text = $driver->byId('your_comments')->text();
-            return $text == "Your comments: $comment";
+            $text = $driver->byId('searchblox-search-form--2')->text();
+            return $text == "$comment";
         };
         $this->spinAssert("Comment never showed up!", $comment_test);
     }
