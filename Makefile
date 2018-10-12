@@ -6,6 +6,6 @@ OSX_10_chrome45:
 
 Windows7_firefox35:
 	vendor/bin/paratest -p 4 -f --phpunit=vendor/bin/phpunit tests/example_spec2.php
-	
+
 itmethods:
 	vendor/bin/paratest -p 4 -f --phpunit=vendor/bin/phpunit tests/example_itmethods.php
