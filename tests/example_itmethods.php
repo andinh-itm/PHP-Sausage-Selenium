@@ -2,7 +2,7 @@
 require_once 'vendor/autoload.php';
 class MyAwesomeTestCase extends Sauce\Sausage\WebDriverTestCase
 {
-    protected $start_url = 'http://saucelabs.com/test/guinea-pig';
+    protected $start_url = 'https://test-it.drupal.gwu.edu';
     public static $browsers = array(
         array(
             'browserName' => 'chrome',
@@ -14,18 +14,12 @@ class MyAwesomeTestCase extends Sauce\Sausage\WebDriverTestCase
     );
     public function testTitle()
     {
-        $this->assertContains("I am a page title", $this->title());
-    }
-    public function testLink()
-    {
-        $link = $this->byId('i am a link');
-        $link->click();
-        $this->assertContains("I am another page title", $this->title());
+        $this->assertContains("Division of IT | The George Washington University", $this->title());
     }
     public function testTextbox()
     {
         $test_text = "This is some text";
-        $textbox = $this->byId('i_am_a_textbox');
+        $textbox = $this->byId('edit-search-keys');
         $textbox->click();
         $textbox->clear();
         $this->keys($test_text);
