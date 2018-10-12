@@ -35,6 +35,7 @@ class MyAwesomeTestCase extends Sauce\Sausage\WebDriverTestCase
             $text = $driver->byId('searchblox-search-form--2')->text();
             return $text == "$comment";
         };
-        $this->spinAssert("Comment never showed up!", $comment_test);
+        $this->assertEquals('Search this site | Division of IT | The George Washington University', $this->title());
+//        $this->spinAssert("Comment never showed up!", $comment_test);
     }
 }
